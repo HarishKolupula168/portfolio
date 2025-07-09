@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harish Kolupula | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4d44db;
+            --dark-color: #2a2a72;
+            --light-color: #f8f9fa;
+            --accent-color: #ff6584;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-color: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .social-icons {
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            padding-right: 30px;
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .skill-item {
+            margin-bottom: 30px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 1.5s ease;
+        }
+        
+        .education-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        
+        .education-item:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+            left: 30px;
+            top: 0;
+        }
+        
+        .education-item:last-child:before {
+            height: 0;
+        }
+        
+        .education-icon {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .education-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .education-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .education-content h5 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-content p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+        
+        .project-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+            margin-bottom: 30px;
+            background: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-body {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .project-text {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .project-tech {
+            margin-bottom: 20px;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .achievement-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievement-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-card:hover .achievement-icon {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .achievement-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .achievement-text {
+            color: var(--text-light);
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .contact-text {
+            color: var(--text-light);
+        }
+        
+        .form-control {
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            padding: 50px 0 20px;
+            color: white;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 991.98px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 120px 0 80px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .education-item {
+                padding-left: 40px;
+            }
+            
+            .education-item:before {
+                left: 20px;
+            }
+            
+            .education-icon {
+                left: 10px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Harish Kolupula</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#achievements">Achievements</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Hi, I'm Harish Kolupula</h1>
+                        <p>A Computer Science Engineer with experience in Java, front-end development, and databases. I enjoy building useful websites and applications, and I’m always ready to learn and grow in tech.</p>
+                        <div class="social-icons">
+                            <a href="mailto:harishkolupula@gmail.com"><i class="fas fa-envelope"></i></a>
+                            <a href="http://linkedin.com/in/harish-kolupula-41a3a6330" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/HarishKolupula168" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fas fa-phone-alt"></i></a>
+                        </div>
+                        <a href="#contact" class="btn btn-primary mt-3">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img src="images/harish.jpg" alt="Harish Kolupula" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="section-title text-center">
+                <h2>About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h3>Computer Science Engineer | Web & Java Developer</h3>
+                        <p>I’m Harish Kolupula, a B.Tech graduate in Computer Science from Malla Reddy University, Hyderabad, with a CGPA of 7.82. I have hands-on experience in Java, front-end development (HTML, CSS, JavaScript), and databases like MySQL. I enjoy creating user-friendly websites and solving real-world problems with technology.</p>
+                        <p>As a fresher, I’m excited to start my career in the IT field. I love learning new things and improving my skills every day. My goal is to become a strong full-stack developer and grow step by step in the tech industry.</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>Java</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>Python</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>HTML/CSS/JS</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>Machine Learning</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info text-center">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4 class="contact-title">Email</h4>
+                                <p class="contact-text">harishkolupula@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info text-center">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <h4 class="contact-title">Phone</h4>
+                                <p class="contact-text">+91 9866552397</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info text-center">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h4 class="contact-title">Location</h4>
+                                <p class="contact-text">Hyderabad, Telangana</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="contact-info text-center">
+                                <div class="contact-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4 class="contact-title">Education</h4>
+                                <p class="contact-text">B.Tech CSE, Malla Reddy University</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="section-title text-center">
+                <h2>Education</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-content">
+                            <h4>B.Tech in Computer Science and Engineering</h4>
+                            <h5>Malla Reddy University</h5>
+                            <p>CGPA: 7.82 | Expected May 2025</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="education-content">
+                            <h4>Board of Intermediate Education</h4>
+                            <h5>Sri Gayatri Junior College, Telangana</h5>
+                            <p>Percentage: 89 | 2019-2021</p>
+                        </div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="education-content">
+                            <h4>Board of Secondary Education</h4>
+                            <h5>Vidya Bharathi Talent School, Telangana</h5>
+                            <p>CGPA: 9.0 | 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container py-5">
+            <div class="section-title text-center">
+                <h2>My Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Alzheimer's Disease Detection">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Alzheimer's Disease Detection</h3>
+                            <p class="project-text">Developed an automated system for Alzheimer's disease detection using transfer learning on MRI brain scans. Leveraged pre-trained CNNs like ResNet50 for accurate classification into normal, mild cognitive impairment (MCI), and Alzheimer's disease (AD).</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Django/Flask</span>
+                                <span class="tech-badge">Keras</span>
+                                <span class="tech-badge">OpenCV</span>
+                                <span class="tech-badge">HTML/CSS/JS</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Lung Cancer Detection">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Lung Cancer Detection</h3>
+                            <p class="project-text">Developed an automated system for lung cancer detection using deep learning techniques on medical imaging data such as CT scans. Utilized pre-trained CNNs like ResNet50 for accurate classification into categories such as benign, malignant, or normal.</p>
+                            <div class="project-tech">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Machine Learning</span>
+                                <span class="tech-badge">Scikit-learn</span>
+                                <span class="tech-badge">OpenCV</span>
+                                <span class="tech-badge">Matplotlib</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="section-title text-center">
+                <h2>Achievements & Certifications</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4 class="achievement-title">NPTEL Java Certification</h4>
+                        <p class="achievement-text">Certified by NPTEL in Java from IIT Kharagpur</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="achievement-title">NPTEL Deep Learning</h4>
+                        <p class="achievement-text">Certified by NPTEL in Deep Learning from IIT Madras</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <h4 class="achievement-title">Microsoft Certification</h4>
+                        <p class="achievement-text">Career Essentials in Software Development by Microsoft and LinkedIn</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="achievement-card">
+                        <div class="achievement-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4 class="achievement-title">Data Analysis</h4>
+                        <p class="achievement-text">Certified by Microsoft in Career Essentials in Data Analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="section-title text-center">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="contact-info mb-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="contact-title">Email Me</h4>
+                        <p class="contact-text">harishkolupula@gmail.com</p>
+                    </div>
+                    <div class="contact-info mb-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4 class="contact-title">Call Me</h4>
+                        <p class="contact-text">+91 9866552397</p>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="contact-title">Location</h4>
+                        <p class="contact-text">Hyderabad, Telangana, India</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Subject">
+                        <textarea class="form-control" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="#" class="footer-logo">Harish Kolupula</a>
+                    <p>A passionate Computer Science Engineer specializing in AI and Web Development, creating innovative solutions to real-world problems.</p>
+                    <div class="footer-social mt-4">
+                        <a href="mailto:harishkolupula@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="http://linkedin.com/in/harish-kolupula-41a3a6330" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/HarishKolupula168" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#education">Education</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Java</a></li>
+                            <li><a href="#">Python</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Machine Learning</a></li>
+                            <li><a href="#">Deep Learning</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li><a href="mailto:harishkolupula@gmail.com">harishkolupula@gmail.com</a></li>
+                            <li><a href="tel:+919866552397">+91 9866552397</a></li>
+                            <li>Hyderabad, Telangana</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p>&copy; 2023 Harish Kolupula. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+        
+        // Back to top button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 300) {
+                $('.back-to-top').addClass('active');
+            } else {
+                $('.back-to-top').removeClass('active');
+            }
+        });
+        
+        $('.back-to-top').click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({scrollTop: 0}, '300');
+        });
+        
+        // Smooth scrolling for navigation links
+        $('a[href*="#"]').on('click', function(e) {
+            e.preventDefault();
+            
+            $('html, body').animate(
+                {
+                    scrollTop: $($(this).attr('href')).offset().top - 70,
+                },
+                500,
+                'linear'
+            );
+        });
+        
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Skill animation
+        $(window).scroll(function() {
+            $('.skill-progress').each(function() {
+                var skillValue = $(this).attr('style');
+                var skillWidth = skillValue.substring(
+                    skillValue.indexOf(':') + 1, 
+                    skillValue.indexOf('%')
+                );
+                
+                if ($(this).isInViewport()) {
+                    $(this).css('width', skillWidth + '%');
+                }
+            });
+        });
+        
+        // Check if element is in viewport
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+    </script>
+</body>
+</html>
